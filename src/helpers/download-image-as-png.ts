@@ -9,9 +9,8 @@ export const downloadImageAsPng = async (url: string, fullPath?: boolean) => {
   if (!response.ok) {
     throw new InternalServerErrorException('Download image was not possible');
   }
-  // NOTE: to development mode
-  // const folderPath = path.resolve('./', './generated/images/');
-  const folderPath = path.resolve('./tmp', 'images');
+
+  const folderPath = path.resolve('./', './generated/images/');
   fs.mkdirSync(folderPath, { recursive: true });
 
   const imageNamePng = `${new Date().getTime()}.png`;
